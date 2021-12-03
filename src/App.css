@@ -1,3 +1,32 @@
+.azul{
+  background-color:lightslategrey;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+.Ul{
+  background-color: lightslategrey;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.Li{
+  width:150px;
+  list-style: none;
+  color:black;
+}
+
+.Ahref{
+  color:white;
+  list-style: none;
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
 }
