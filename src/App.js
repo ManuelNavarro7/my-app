@@ -1,30 +1,27 @@
-import logo from './logo.svg';
-import React from 'react'
-import './App.css';
-import NavBar from './components/NavBar';
 
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import './App.css';
+import NavBarComponent from './components/NavBar';
+import Shell from './components/Shell';
+import ItemListContainer from './components/ItemListContainer';
+import ComponentCommon from './components/common';
 
 function App() {
 
-  const styles={
-    color:'black',
-    backgroundColor:"white",
-  }
-
-
-const azul={
-  color:"blue"
-}
-
+   
+  
   return (
     <div>
-      {/*<a className="colorAzul" style={{color:"blue"}}>Hola</a>*/}
-      
-     
+
       <header>
-      <NavBar/>
-        
-         
+      <NavBarComponent/>
+      <ItemListContainer val="Bienvenido a la Tienda"/>
+      {/*<Shell nombre='Leonardo' app='mi app'></Shell>*/}
+      <ComponentCommon.ButonBlack id='Buy'></ComponentCommon.ButonBlack>
+      <ComponentCommon.Title1 text='on-line'></ComponentCommon.Title1>
+      <ComponentCommon.Title2 id='Buy'></ComponentCommon.Title2>
+       
       </header>
       
     </div>

@@ -1,39 +1,11 @@
-.azul{
-  background-color:lightslategrey;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width:100%;
-}
-.Ul{
-  background-color: lightslategrey;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-}
-.Li{
-  width:150px;
-  list-style: none;
-  color:black;
+.Carrito{
+  color: white;
 }
 
-.Ahref{
-  color:white;
-  list-style: none;
-  text-decoration: none;
-}
+.Titulo1{
 
-.App {
-  text-align: center;
-}
+  color:greenyellow;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
