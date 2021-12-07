@@ -2,10 +2,8 @@
   color: white;
 }
 
-.Titulo1{
-
-  color:greenyellow;
-
+.colorPrueba{
+  color:indigo;
 }
 
 @media (prefers-reduced-motion: no-preference) {

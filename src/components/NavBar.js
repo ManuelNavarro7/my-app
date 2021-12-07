@@ -4,6 +4,7 @@ import Container  from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 
 
+
 /*
 const Components={
     Circulo1:(props)=>(<button type="button" class="btn btn-primary">Primary</button>),
@@ -28,10 +29,10 @@ function NavBarComponent(props){
 
     return(
         <Navbar bg='dark' variant='dark'>
-          <Container fluid>
-            <Navbar.Brand href="#home">Inicio</Navbar.Brand>
+          <Container fluid >
+            <Navbar.Brand href="#home" >Inicio</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#home" >Home</Nav.Link>
               <Nav.Link href="#features">Features</Nav.Link>
               <Nav.Link href="#home" >Pricing</Nav.Link>
               <CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito>
