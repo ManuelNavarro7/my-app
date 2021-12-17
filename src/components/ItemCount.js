@@ -26,7 +26,7 @@ import React,{useState, useEffect} from 'react'
       }
       const handleClick1 =()=>{
         
-        if(state<stock){
+        if(state<stock && state!=0){
        
             setState(--state)
             setState1(++state1)
