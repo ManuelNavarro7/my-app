@@ -3,7 +3,7 @@ import React,{useState, useEffect} from 'react'
 import Navbar  from 'react-bootstrap/Navbar'
 import Container  from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
-
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -28,31 +28,24 @@ const CartWidgets={
 
 function NavBarComponent(props){
 
-  const [panchita,setPanchita]=useState("estado")
-  const [burguer,setBurguer]=useState("burguer")
-  
-  
-  
-  const handleClick =()=>{
-    setPanchita("cambie")
-    setBurguer("pizza")
-  }
+
   
 
   
 
 
-  console.log(props.children[1])
+  
     return(
         <Navbar bg='dark' variant='dark'>
           <Container fluid >
-            <Navbar.Brand href="#home" >{panchita}</Navbar.Brand>
+            <Navbar.Brand ><NavLink to ={'/Store'}>Home</NavLink></Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#home" >{burguer}</Nav.Link>
-              <Nav.Link href="#features">3</Nav.Link>
-              <Nav.Link href="#home" >{props.children[1]}</Nav.Link>
+              
+              <Nav.Link><NavLink to ={`/Store/${"Ofertas Mercadolibre"}`}>Ofertas Mercadolibre</NavLink></Nav.Link>
+              <Nav.Link >Contacto</Nav.Link>
+
               <CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito>
-              <Nav.Link ><button onClick={handleClick}>hola</button></Nav.Link>
+              
             </Nav>
 
 

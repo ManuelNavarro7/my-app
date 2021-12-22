@@ -1,5 +1,6 @@
 
 import React,{useState, useEffect} from 'react' 
+import { BrowserRouter,Routes,Route,useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './App.css';
 import NavBarComponent from './components/NavBar';
@@ -16,15 +17,29 @@ import Itd from './components/ItemD';
 
 function App() {
 
+  const Nav =()=><NavBarComponent></NavBarComponent>
+  
+
+ const Store =()=><ItemListContainer val="Bienvenido a la Tienda"></ItemListContainer>
+ 
+ const Ofertas =()=><Itd></Itd>
+
+ const {id}=useParams()
+
+ useEffect(()=>{console.log(id)},[id])
+
+
   
   return (
-    <div>
-
+    <BrowserRouter>
+    <Nav/>
+    <Routes>
+      <Route exact path = "/Store" element={<Store></Store>}></Route>
+      <Route exact path = "/Store/:id" element={<Ofertas></Ofertas>}></Route>
+      
+{/*
       <header>
-      <NavBarComponent>
-      <div>1</div>
-      <div>Contacto</div>
-      </NavBarComponent>
+      
       <ItemListContainer val="Bienvenido a la Tienda"></ItemListContainer>
       
       <ComponentCommon.ButonBlack id='Buy'></ComponentCommon.ButonBlack>
@@ -37,7 +52,9 @@ function App() {
       
       </header>
       
-    </div>
+*/}
+    </Routes>
+    </BrowserRouter>
   );
 }
 
