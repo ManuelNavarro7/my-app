@@ -1,10 +1,12 @@
 import React,{useState, useEffect} from 'react' 
+import { NavLink } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../styles/itemsprueba.css'
 
 const SaludoRecepcion={
     Saludo:(props)=>(<h1 className='Titulo1 d-flex justify-content-center'>{props.value}</h1>),
     Store:(props)=>(<h2 className='Titulo1 d-flex justify-content-center'>{props.value}</h2>)
+    
 }
 
 
@@ -31,6 +33,7 @@ function Itemx() {
                  <img src={valorActual.img} width="300px" height="300px"></img>
                  <p>{valorActual.name}</p>
                  <p>{valorActual.price}</p>
+                 <NavLink to ={`/Store/Detalle/${valorActual.name}`}>Detalle</NavLink>
                  </div>
                  )
                  
@@ -53,6 +56,7 @@ function ItemListContainer(props){
        </div>
     )
 }
+
 
 
 export default ItemListContainer;
