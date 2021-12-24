@@ -38,10 +38,10 @@ function NavBarComponent(props){
     return(
         <Navbar bg='dark' variant='dark'>
           <Container fluid >
-            <Navbar.Brand><NavLink to ={'/Store'}>Home</NavLink></Navbar.Brand>
+            <Navbar.Brand><NavLink to ={'/'}>Home</NavLink></Navbar.Brand>
             <Nav className="me-auto">
               
-              <Nav.Link><NavLink to ={`/Store/${"Ofertas Mercadolibre"}`}>Ofertas Mercadolibre</NavLink></Nav.Link>
+              <Nav.Link><NavLink to ={'/Store/MercadoLibre'}>Ofertas Mercadolibre</NavLink></Nav.Link>
               <Nav.Link >Contacto</Nav.Link>
 
               <CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito>

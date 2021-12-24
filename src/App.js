@@ -6,7 +6,7 @@ import './App.css';
 import NavBarComponent from './components/NavBar';
 import Shell from './components/Shell';
 import ItemListContainer from './components/ItemListContainer';
-import Item from './components/Item';
+import ItemDetail from './components/Item';
 import ComponentCommon from './components/common';
 import ItemCountx from './components/ItemCount';
 import Itd from './components/ItemD';
@@ -25,7 +25,7 @@ function App() {
  
  const Detalle =()=><ItemListContainer val='Bienvenidos a la Tienda'></ItemListContainer>
 
- const Item =()=><Item></Item>
+ const Item =()=><ItemDetail></ItemDetail>
 
  const Ofertas =()=><Itd></Itd>
 
@@ -41,8 +41,8 @@ function App() {
     
     <Routes>
       <Route exact path = "/" element={<Detalle></Detalle>}></Route>
-      <Route exact path = "/Store/" element={<Detalle></Detalle>}></Route>
-      <Route exact path = "/Store/:id" element={<Ofertas></Ofertas>}></Route>
+      
+      <Route exact path = "/Store/MercadoLibre" element={<Ofertas></Ofertas>}></Route>
       <Route exact path = "/Store/Detalle/:id" element={<Item></Item>}></Route>
 {/*
       <header>
