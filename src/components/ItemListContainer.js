@@ -33,7 +33,7 @@ function Itemx() {
                  <img src={valorActual.img} width="300px" height="300px"></img>
                  <p>{valorActual.name}</p>
                  <p>{valorActual.price}</p>
-                 <NavLink to ={`/Store/Detalle/${valorActual.name}`}>Detalle</NavLink>
+                 <NavLink to ={`/Store/Detalle/${valorActual.id}`}>Detalle</NavLink>
                  </div>
                  )
                  
