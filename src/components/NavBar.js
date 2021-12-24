@@ -38,11 +38,11 @@ function NavBarComponent(props){
     return(
         <Navbar bg='dark' variant='dark'>
           <Container fluid >
-            <Navbar.Brand><NavLink to ={'/'}>Home</NavLink></Navbar.Brand>
-            <Nav className="me-auto">
+            <NavLink to ={'/'} className='Links'>Home</NavLink>
+            <Nav className=" d-flex flex-row justify-content-between align-items-center">
               
-              <Nav.Link><NavLink to ={'/Store/MercadoLibre'}>Ofertas Mercadolibre</NavLink></Nav.Link>
-              <Nav.Link >Contacto</Nav.Link>
+              <NavLink to ={'/Store/MercadoLibre'} className='Links'>Ofertas Mercadolibre</NavLink>
+              <Nav.Link className='Links'>Contacto</Nav.Link>
 
               <CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito>
               

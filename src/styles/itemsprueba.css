@@ -5,4 +5,18 @@
   
   }
 
+  .bannerInicio{
+
+    background-image: url('https://cdn.shopify.com/s/files/1/1363/9583/files/03-BANNERS-WEB-MEAT-PACK_1400x641_crop_center.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;   
+    width:100%;
+    height:100vh;
+}
+
+.Links{
+  text-decoration: none;
+  color:lightgray;
+}
 

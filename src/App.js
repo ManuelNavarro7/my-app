@@ -16,15 +16,17 @@ import Itd from './components/ItemD';
 
 
 
+
 function App() {
 
   const Nav =()=><NavBarComponent></NavBarComponent>
-  
 
+ 
+ 
  //const Store =()=><ItemListContainer val="Bienvenido a la Tienda"></ItemListContainer>
  
- const Detalle =()=><ItemListContainer val='Bienvenidos a la Tienda'></ItemListContainer>
-
+ const Detalle =()=><ItemListContainer></ItemListContainer>
+ 
  const Item =()=><ItemDetail></ItemDetail>
 
  const Ofertas =()=><Itd></Itd>
@@ -38,6 +40,7 @@ function App() {
   return (
     <BrowserRouter>
     <Nav/>
+    
     
     <Routes>
       <Route exact path = "/" element={<Detalle></Detalle>}></Route>
@@ -61,6 +64,7 @@ function App() {
       
 */}
     </Routes>
+    
     </BrowserRouter>
   );
 }

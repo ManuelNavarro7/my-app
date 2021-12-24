@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/itemsprueba.css'
 
 const SaludoRecepcion={
-    Saludo:(props)=>(<h1 className='Titulo1 d-flex justify-content-center'>{props.value}</h1>),
-    Store:(props)=>(<h2 className='Titulo1 d-flex justify-content-center'>{props.value}</h2>)
+    Saludo:(props)=>(<h1 className='Titulo1 bannerInicio d-flex justify-content-center'></h1>),
+    
     
 }
 
@@ -29,7 +29,7 @@ function Itemx() {
     {
                sniker.map((valorActual)=>{
                  return (
-                 <div key={valorActual.id} id={valorActual.id}>
+                 <div key={valorActual.id} id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
                  <img src={valorActual.img} width="300px" height="300px"></img>
                  <p>{valorActual.name}</p>
                  <p>{valorActual.price}</p>
@@ -50,9 +50,9 @@ function Itemx() {
 function ItemListContainer(props){
     return(
         <div>
-        <SaludoRecepcion.Saludo value={props.val}/>
+        <SaludoRecepcion.Saludo value={props.val} />
         <Itemx></Itemx>
-        <SaludoRecepcion.Store value={'Store'}/>
+        
        </div>
     )
 }
