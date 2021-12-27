@@ -4,7 +4,7 @@ import Navbar  from 'react-bootstrap/Navbar'
 import Container  from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import { NavLink } from 'react-router-dom'
-
+import ComponentCommon from './common'
 
 
 /*
@@ -38,14 +38,15 @@ function NavBarComponent(props){
     return(
         <Navbar bg='dark' variant='dark'>
           <Container fluid >
+            
             <NavLink to ={'/'} className='Links'>Home</NavLink>
             <Nav className=" d-flex flex-row justify-content-between align-items-center">
               
               <NavLink to ={'/Store/MercadoLibre'} className='Links'>Ofertas Mercadolibre</NavLink>
               <Nav.Link className='Links'>Contacto</Nav.Link>
 
-              <CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito>
               
+              <NavLink to ={`/Store/Cart`}><CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito></NavLink>
             </Nav>
 
 

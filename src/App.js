@@ -10,7 +10,7 @@ import ItemDetail from './components/Item';
 import ComponentCommon from './components/common';
 import ItemCountx from './components/ItemCount';
 import Itd from './components/ItemD';
-
+import Cart from './components/Cart';
 
 
 
@@ -19,6 +19,9 @@ import Itd from './components/ItemD';
 
 function App() {
 
+  window.addEventListener('Bubbles',()=>{
+    console.log('bubbles777!!!')
+  })
   const Nav =()=><NavBarComponent></NavBarComponent>
 
  
@@ -31,6 +34,8 @@ function App() {
 
  const Ofertas =()=><Itd></Itd>
 
+ const CartFinal =()=><Cart></Cart>
+
  const {id}=useParams()
 
  useEffect(()=>{console.log(id)},[id])
@@ -41,12 +46,13 @@ function App() {
     <BrowserRouter>
     <Nav/>
     
-    
+
     <Routes>
       <Route exact path = "/" element={<Detalle></Detalle>}></Route>
       
       <Route exact path = "/Store/MercadoLibre" element={<Ofertas></Ofertas>}></Route>
       <Route exact path = "/Store/Detalle/:id" element={<Item></Item>}></Route>
+      <Route exact path = "/Store/Cart" element={<CartFinal/>}></Route>
 {/*
       <header>
       

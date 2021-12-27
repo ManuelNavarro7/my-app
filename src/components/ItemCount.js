@@ -10,6 +10,7 @@ import React,{useState, useEffect} from 'react'
         titulo2:(props)=>(<h1 className='Titulo1 d-flex justify-content-center'>stock{state1}</h1>),
         botoncontmas:(props)=>(<button onClick={handleClick}>{props.value} </button>),
         botoncontmenoss:(props)=>(<button onClick={handleClick1}>{props.value} </button>),
+        
     }
 
     let [state,setState]=useState(initialValue);
@@ -19,7 +20,7 @@ import React,{useState, useEffect} from 'react'
         if(state<stock){
        
             setState(++state)
-            setState1(--state1)
+           
        
         }
         
@@ -29,7 +30,7 @@ import React,{useState, useEffect} from 'react'
         if(state<stock && state!=0){
        
             setState(--state)
-            setState1(++state1)
+           
        
         }
         
@@ -39,13 +40,14 @@ import React,{useState, useEffect} from 'react'
 
         return(
            
-     <div>
-
+     <div >
+      <section>
      <titulox.titulo></titulox.titulo>
-     <titulox.titulo2></titulox.titulo2>
+     </section>
+     <section className='d-flex flex-row justify-content-center align-items-center'>
      <titulox.botoncontmas value='+'></titulox.botoncontmas>
      <titulox.botoncontmenoss value='-'></titulox.botoncontmenoss>
-     
+     </section>
    
       
     </div>

@@ -75,7 +75,7 @@ import '../styles/itemsprueba.css'
              <img src={item.thumbnail} alt =""style={{width:120}}/>
              <h4>Precio ${item.price}</h4>
              <titulox.titulo></titulox.titulo>
-             <titulox.botoncontmas value='+'></titulox.botoncontmas>
+             <titulox.botoncontmas value='+' id={item.id}></titulox.botoncontmas>
              <titulox.botoncontmenoss value='-'></titulox.botoncontmenoss>
              </div>
      ))}
