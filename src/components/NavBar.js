@@ -1,11 +1,11 @@
 
-import React,{useState, useEffect} from 'react' 
+import React,{useState, useEffect,useContext} from 'react' 
 import Navbar  from 'react-bootstrap/Navbar'
 import Container  from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import { NavLink } from 'react-router-dom'
 import ComponentCommon from './common'
-
+import { shopContext } from "../context/carContext";
 
 /*
 const Components={
@@ -30,13 +30,13 @@ function NavBarComponent(props){
 
 
   
-
+  const {isDarkMode} = useContext(shopContext)
   
 
 
   
     return(
-        <Navbar bg='dark' variant='dark'>
+        <Navbar bg='dark' variant={isDarkMode}>
           <Container fluid >
             
             <NavLink to ={'/'} className='Links'>Home</NavLink>

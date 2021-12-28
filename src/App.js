@@ -1,5 +1,5 @@
 
-import React,{useState, useEffect} from 'react' 
+import React,{useState, useEffect,useContext} from 'react' 
 import { BrowserRouter,Routes,Route,useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './App.css';
@@ -12,7 +12,7 @@ import ItemCountx from './components/ItemCount';
 import Itd from './components/ItemD';
 import Cart from './components/Cart';
 
-
+import CustomProvider, { shopContext } from './context/carContext';
 
 
 
@@ -22,7 +22,7 @@ function App() {
   window.addEventListener('Bubbles',()=>{
     console.log('bubbles777!!!')
   })
-  const Nav =()=><NavBarComponent></NavBarComponent>
+ const Nav =()=><NavBarComponent></NavBarComponent>
 
  
  
@@ -40,38 +40,38 @@ function App() {
 
  useEffect(()=>{console.log(id)},[id])
 
+ //const ThemeContext = React.createContext()
+
+ //const [isDarkMode, setDarkMode]=useState(true)
+
+ {/*const ContextComponent =()=>{
+   const contextValue = useContext(ThemeContext)
+   return <p>{contextValue}</p>
+ }*/}
+
 
   
   return (
+
+    <CustomProvider>
+
     <BrowserRouter>
+    
+    
     <Nav/>
     
-
     <Routes>
+
       <Route exact path = "/" element={<Detalle></Detalle>}></Route>
-      
       <Route exact path = "/Store/MercadoLibre" element={<Ofertas></Ofertas>}></Route>
       <Route exact path = "/Store/Detalle/:id" element={<Item></Item>}></Route>
       <Route exact path = "/Store/Cart" element={<CartFinal/>}></Route>
-{/*
-      <header>
-      
-      <ItemListContainer val="Bienvenido a la Tienda"></ItemListContainer>
-      
-      <ComponentCommon.ButonBlack id='Buy'></ComponentCommon.ButonBlack>
-      <ComponentCommon.Title1 text='on-line' estilo='colorPrueba'></ComponentCommon.Title1>
-      <ComponentCommon.Title2 id='Buy'></ComponentCommon.Title2>
-      <ItemCountx></ItemCountx>
-      
-     <Itd></Itd>
-   
-      
-      </header>
-      
-*/}
+
     </Routes>
     
     </BrowserRouter>
+    </CustomProvider>
+    
   );
 }
 
