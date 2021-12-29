@@ -19,7 +19,7 @@ export default function Item(){
       
 
       const handleClick = ()=>{
-        const event1 = new CustomEvent('clickDetalle',{detail:{data: {resultado}}})
+        const event1 = new CustomEvent('clickDetalle',{detail:{data: {resultado}}}) 
           window.dispatchEvent(event1)
       }
 
