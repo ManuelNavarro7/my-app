@@ -23,7 +23,7 @@ function App() {
  
 
 
- const Nav =()=><NavBarComponent></NavBarComponent>
+ const Nav=()=><NavBarComponent></NavBarComponent>
 
  
  

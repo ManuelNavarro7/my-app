@@ -78,7 +78,7 @@ const CustomProvider = ({children})=>{
     }
     const [compraSniker , setcompraSniker]=useState([])
 
-    window.addEventListener('clickDetalle',(e)=>{
+    window.addEventListener('clickDetalle ',(e)=>{
       
      
         setcompraSniker([...compraSniker,e.detail.data.resultado])
