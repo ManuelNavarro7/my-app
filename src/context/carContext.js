@@ -82,7 +82,7 @@ const CustomProvider = ({children})=>{
       
      
         setcompraSniker([...compraSniker,e.detail.data.resultado])
-      console.log(compraSniker)
+      
   
     })
     
