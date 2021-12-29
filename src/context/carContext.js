@@ -9,6 +9,8 @@ const {Provider}= shopContext
 const CustomProvider = ({children})=>{
 
     const [isDarkMode, setDarkMode]=useState('dark')
+
+    const cantidad =[]
     
     function ItemCount({initialValue=0,stock=10}){
 
@@ -25,12 +27,17 @@ const CustomProvider = ({children})=>{
     
         let [state,setState]=useState(initialValue);
         let [state1,setState1]=useState(stock);
-        const handleClick =()=>{
+
+        const handleClick =(e)=>{
             
+            cantidad.push(state+1)
+            console.log(cantidad)
+            e.preventDefault()
             if(state<stock){
            
                 setState(++state)
-               
+                
+
            
             }
             
@@ -78,17 +85,17 @@ const CustomProvider = ({children})=>{
     }
     const [compraSniker , setcompraSniker]=useState([])
 
-    window.addEventListener('clickDetalle ',(e)=>{
+    window.addEventListener('clickDetalle',(e)=>{
       
      
         setcompraSniker([...compraSniker,e.detail.data.resultado])
-      
+       
+        console.log(compraSniker)
   
     })
-    
 
 return (
-    <Provider value={{isDarkMode,ItemCount,compraSniker}}>
+    <Provider value={{isDarkMode,ItemCount,compraSniker,cantidad}}>
 
         {children}
     </Provider>
