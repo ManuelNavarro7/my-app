@@ -16,7 +16,14 @@ export default function Item(){
      
       console.log(sniker)
       const resultado = sniker.find( Zapatillas => Zapatillas.id === `${id}` );
-      console.log(resultado)
+      
+
+      const handleClick = ()=>{
+        const event1 = new CustomEvent('clickDetalle',{detail:{data: {resultado}}})
+          window.dispatchEvent(event1)
+      }
+
+      
       
 
 return(
@@ -25,6 +32,7 @@ return(
     <div>{resultado.name}</div>
     <img src={resultado.img} width="300px" height="300px"></img>
     <div>{resultado.price}</div>
+    <button onClick={handleClick}>Comprar</button>
     
     <ItemCount/>
     <NavLink to ={`/`}>Store</NavLink>

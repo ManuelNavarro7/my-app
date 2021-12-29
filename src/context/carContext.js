@@ -1,4 +1,5 @@
 import React, { useContext, createContext,useState } from "react";
+import Item from "../components/Item";
 
 export const shopContext = createContext()
 
@@ -67,8 +68,27 @@ const CustomProvider = ({children})=>{
     
     }
 
+    function eventHelper(params){
+        window.dispatchEvent('click')
+    }
+
+    function eventHelper1(params){
+        const event= new CustomEvent('evento')
+        window.dispatchEvent(event)
+    }
+    const [compraSniker , setcompraSniker]=useState([])
+
+    window.addEventListener('clickDetalle',(e)=>{
+      
+     
+        setcompraSniker([...compraSniker,e.detail.data.resultado])
+      console.log(compraSniker)
+  
+    })
+    
+
 return (
-    <Provider value={{isDarkMode,ItemCount}}>
+    <Provider value={{isDarkMode,ItemCount,compraSniker}}>
 
         {children}
     </Provider>

@@ -11,6 +11,7 @@ import ComponentCommon from './components/common';
 import ItemCountx from './components/ItemCount';
 import Itd from './components/ItemD';
 import Cart from './components/Cart';
+import Item from './components/Item';
 
 import CustomProvider, { shopContext } from './context/carContext';
 
@@ -19,9 +20,9 @@ import CustomProvider, { shopContext } from './context/carContext';
 
 function App() {
 
-  window.addEventListener('Bubbles',()=>{
-    console.log('bubbles777!!!')
-  })
+ 
+
+
  const Nav =()=><NavBarComponent></NavBarComponent>
 
  
@@ -49,10 +50,11 @@ function App() {
    return <p>{contextValue}</p>
  }*/}
 
-
+ //window.addEventListener('click', (e)=> console.log(e))
+ //window.addEventListener('evento', (e)=> console.log(e))
   
   return (
-
+    
     <CustomProvider>
 
     <BrowserRouter>

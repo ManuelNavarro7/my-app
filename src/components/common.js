@@ -18,11 +18,11 @@ function onCLick(evt){
       console.log('You click me')
 }
 
-const event = new CustomEvent('Bubbles')
+//const event = new CustomEvent('Bubbles')
 
 const handleSubmit =(evn)=>{
     evn.preventDefault()
-    window.dispatchEvent(event)
+    //window.dispatchEvent(event)
     evn.stopPropagation()
     console.log(evn)
    
