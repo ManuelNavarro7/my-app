@@ -1,5 +1,6 @@
 import React, { useContext, createContext,useState } from "react";
 import Item from "../components/Item";
+import Cart from "../components/Cart";
 
 export const shopContext = createContext()
 
@@ -7,6 +8,41 @@ export const shopContext = createContext()
 const {Provider}= shopContext
 
 const CustomProvider = ({children})=>{
+
+
+    window.addEventListener('clickDetalle',(e)=>{
+      
+     
+        setcompraSniker([...compraSniker,e.detail.data.resultado])
+
+        setCartlength(compraSniker.length + 1)
+       
+        console.log(e.detail.data.resultado)
+
+        console.log(e)
+  
+    })
+
+    window.addEventListener('clickResta',(e)=>{
+      
+     
+        console.log(e.detail.data.e.nativeEvent.path[1].id)
+
+        const AA= e.detail.data.e.nativeEvent.path[1].id
+
+      const resultado = compraSniker.find( Zapatillas => Zapatillas.id != AA );
+
+      console.log(resultado)
+
+      setcompraSniker([resultado])
+
+      console.log(compraSniker)
+      setCartlength(compraSniker.length - 1)
+    })
+    
+
+    
+   
 
     const [isDarkMode, setDarkMode]=useState('dark')
 
@@ -85,17 +121,21 @@ const CustomProvider = ({children})=>{
     }
     const [compraSniker , setcompraSniker]=useState([])
 
-    window.addEventListener('clickDetalle',(e)=>{
-      
-     
-        setcompraSniker([...compraSniker,e.detail.data.resultado])
-       
-        console.log(compraSniker)
-  
-    })
+    const [cartLength, setCartlength]=useState()
+
+    console.log(compraSniker)
+    console.log(cartLength)
+    
+
+
+    
+
+
+
+
 
 return (
-    <Provider value={{isDarkMode,ItemCount,compraSniker,cantidad}}>
+    <Provider value={{isDarkMode,ItemCount,compraSniker,cantidad,cartLength}}>
 
         {children}
     </Provider>

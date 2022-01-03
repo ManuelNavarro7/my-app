@@ -1,29 +1,37 @@
 import React,{useState, useEffect,useContext} from 'react' 
 import { NavLink , useParams} from 'react-router-dom'
-import ItemCount from './ItemCount'
+
 import { shopContext } from '../context/carContext'
 
 export default function Cart(){
 
     const {compraSniker} = useContext(shopContext)
     console.log({compraSniker})
-    const {cantidad} = useContext(shopContext)
+    
 
-    const cant1= {cantidad}
 
-    console.log(cant1)
+    
+
+  
+    
+  const handleClick1 = (e)=>{
+    const event2 = new CustomEvent('clickResta',{detail:{data: {e}}}) 
+  
+      window.dispatchEvent(event2)
+  }
+    
 
 return(
     <div>
-      <p>{cantidad}</p>
+      
     {
                compraSniker.map((valorActual)=>{
                  return (
-                 <div key={valorActual.id} id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
+                 <div key={valorActual.id}  id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
                  <img src={valorActual.img} width="300px" height="300px"></img>
                  <p>{valorActual.name}</p>
                  <p>{valorActual.price}</p>
-                 
+                 <button onClick={handleClick1}>Borrar</button>
                  <NavLink to ={`/Store/Detalle/${valorActual.id}`}>Detalle</NavLink>
                  <NavLink to ={`/`}>Store</NavLink>
                  </div>
@@ -34,3 +42,5 @@ return(
     </div>
 )
 }
+
+

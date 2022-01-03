@@ -3,7 +3,7 @@ import { NavLink , useParams} from 'react-router-dom'
 
 import { shopContext } from "../context/carContext";
 
-export default function Item(){
+export default function ItemDetail(){
 
     const {id}=useParams()
     
@@ -27,13 +27,14 @@ export default function Item(){
           window.dispatchEvent(event1)
       }
 
-      
+     
+
 
       
       
 
 return(
-    <article className='d-flex flex-column justify-content-center align-items-center'>
+    <article key={resultado.id} id={resultado.id} className='d-flex flex-column justify-content-center align-items-center'>
     
     <div>{resultado.name}</div>
     <img src={resultado.img} width="300px" height="300px"></img>

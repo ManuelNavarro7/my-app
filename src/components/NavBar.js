@@ -33,6 +33,7 @@ function NavBarComponent(props){
   const {isDarkMode} = useContext(shopContext)
   
 
+  const {cartLength} = useContext(shopContext)
 
   
     return(
@@ -42,11 +43,12 @@ function NavBarComponent(props){
             <NavLink to ={'/'} className='Links'>Home</NavLink>
             <Nav className=" d-flex flex-row justify-content-between align-items-center">
               
-              <NavLink to ={'/Store/MercadoLibre'} className='Links'>Ofertas Mercadolibre</NavLink>
+              
               <Nav.Link className='Links'>Contacto</Nav.Link>
 
               
               <NavLink to ={`/Store/Cart`}><CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito></NavLink>
+              <NavLink to ={`/Store/Cart`} className='Links'>{cartLength}</NavLink>
             </Nav>
 
 
