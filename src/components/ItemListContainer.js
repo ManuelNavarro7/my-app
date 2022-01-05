@@ -1,7 +1,13 @@
-import React,{useState, useEffect} from 'react' 
-import { NavLink } from 'react-router-dom'
+import React,{useState, useEffect,useContext} from 'react' 
+import { NavLink , useParams} from 'react-router-dom'
+import { shopContext } from "../context/carContext";
+
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../styles/itemsprueba.css'
+
+
+
+
 
 const SaludoRecepcion={
     Saludo:(props)=>(<h1 className='Titulo1 bannerInicio d-flex justify-content-center'></h1>),
@@ -11,6 +17,8 @@ const SaludoRecepcion={
 
 
 function Itemx() {
+  
+  const {ItemCount} = useContext(shopContext)
 
     const [sniker, setSniker]=(useState([]))
     
@@ -30,9 +38,10 @@ function Itemx() {
                sniker.map((valorActual)=>{
                  return (
                  <div key={valorActual.id} id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
-                 <img src={valorActual.img} width="300px" height="300px"></img>
+                 <img src={valorActual.img} style={{width:300, height:300}} alt=""/>
                  <p>{valorActual.name}</p>
                  <p>{valorActual.price}</p>
+                 
                  <NavLink to ={`/Store/Detalle/${valorActual.id}`}>Detalle</NavLink>
                  </div>
                  )
