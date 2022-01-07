@@ -7,18 +7,16 @@ export default function ItemDetail(){
 
     const {id}=useParams()
     
-    const {ItemCount} = useContext(shopContext)
-    
     const {carrito} = useContext(shopContext)
     
     const {sniker} = useContext(shopContext)  
     
     const {CantidadParaCompra} = useContext(shopContext)  
    
+    const resultado = sniker.find( Zapatillas => Zapatillas.id === `${id}` );
+      
+      
      
-      
-      const resultado = sniker.find( Zapatillas => Zapatillas.id === `${id}` );
-      
 
 
 return(
@@ -30,7 +28,7 @@ return(
     <div>{resultado.price}</div>
    
     <button onClick={carrito} id={resultado.id}  > agregar </button> 
-    <input  ref={CantidadParaCompra} maxLength="1" type='text'/>
+    <input  ref={CantidadParaCompra} maxLength="1" type='text' placeholder='cantidad de unidades'/>
    
    
     <NavLink to ={`/`}>Store</NavLink>
