@@ -11,6 +11,10 @@ export default function Cart(){
     const {ItemCount} = useContext(shopContext)
 
     
+
+    
+
+    
     if(compraSniker==0){
       return <h2>Carrito Vacio</h2>
      }
