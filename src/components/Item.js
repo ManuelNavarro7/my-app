@@ -12,6 +12,8 @@ export default function ItemDetail(){
     const {sniker} = useContext(shopContext)  
     
     const {CantidadParaCompra} = useContext(shopContext)  
+
+    const {Talle} = useContext(shopContext)  
    
     const resultado = sniker.find( Zapatillas => Zapatillas.id === `${id}` );
       
@@ -27,9 +29,9 @@ return(
     <img src={resultado.img} style={{width:300, height:300}}></img>
     <div>{resultado.price}</div>
    
-    <button onClick={carrito} id={resultado.id}  > agregar </button> 
+    <button onClick={carrito} id={resultado.id} value={resultado.price}  > agregar </button> 
     <input  ref={CantidadParaCompra} maxLength="1" type='text' placeholder='cantidad de unidades'/>
-   
+    <input  ref={Talle} maxLength="2" type='text' placeholder='talle'/>
    
     <NavLink to ={`/`}>Store</NavLink>
     <NavLink to ={`/Store/Cart`}>Cart</NavLink>

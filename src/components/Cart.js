@@ -3,18 +3,11 @@ import { NavLink , useParams} from 'react-router-dom'
 
 import { shopContext } from '../context/carContext'
 
+
 export default function Cart(){
 
     const {compraSniker} = useContext(shopContext)
 
-    
-    const {ItemCount} = useContext(shopContext)
-
-    
-
-    
-
-    
     if(compraSniker==0){
       return <h2>Carrito Vacio</h2>
      }
@@ -30,11 +23,19 @@ return(
                  <div key={valorActual.id}  id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
                  <img src={valorActual.img} style= {{width:300, height:300}}></img>
                  <p>{valorActual.name}</p>
-                 <p>{valorActual.price}</p>
+                 <p>Cantidad de pares : {valorActual.InputX.ED}</p>
+                 <p>precio por unidad: {valorActual.price}</p>
+                 <p>Talle de compra : {valorActual.TalleCompra.TalleCompra}</p>
+                 {<p> Valor total $ {valorActual.TotalFinal.TotalFinal}</p>}
+
+                 <section className='d-flex flex-column justify-content-center align-items-center'>
+               
+                 <section className='d-flex flex-row justify-content-center align-items-center'>
                  
+                 </section>
                  
-                 <ItemCount initialValue={valorActual.InputX.ED} stock={valorActual.stock} precio={valorActual.price} id={valorActual.id} />
-                
+                </section>
+                  
                  <NavLink to ={`/Store/Detalle/${valorActual.id}`}>Detalle</NavLink>
                  <NavLink to ={`/`}>Store</NavLink>
                  </div>
