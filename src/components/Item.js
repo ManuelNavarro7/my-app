@@ -1,3 +1,4 @@
+import{doc , getDoc, getFirestore} from "firebase/firestore"
 import React,{useState, useEffect,useContext,useRef} from 'react' 
 import { NavLink , useParams} from 'react-router-dom'
 
@@ -16,8 +17,17 @@ export default function ItemDetail(){
     const {Talle} = useContext(shopContext)  
    
     const resultado = sniker.find( Zapatillas => Zapatillas.id === `${id}` );
-      
-      
+   
+    const [data, setData]=useState([])
+     
+    useEffect(()=>{
+          const db = getFirestore();
+          const data = doc(db, "items", "9Gc4Z1hXfxG0vVxJl4C6")
+          getDoc(data).then((snapshot)=>{
+              console.log(snapshot.data())
+              setData([snapshot.data()])
+          })
+      })
      
 
 

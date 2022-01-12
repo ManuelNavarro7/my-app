@@ -1,5 +1,6 @@
 import React, { useContext, createContext,useState,useRef,useEffect } from "react";
-import { NavLink , useParams} from 'react-router-dom'
+import { NavLink , useParams} from 'react-router-dom';
+import{doc , getDoc, getFirestore} from "firebase/firestore"
 import Item from "../components/Item";
 import Cart from "../components/Cart";
 

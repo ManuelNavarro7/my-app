@@ -29,10 +29,7 @@ return(
                  {<p> Valor total $ {valorActual.TotalFinal.TotalFinal}</p>}
 
                  <section className='d-flex flex-column justify-content-center align-items-center'>
-               
-                 <section className='d-flex flex-row justify-content-center align-items-center'>
-                 
-                 </section>
+    
                  
                 </section>
                   
