@@ -17,10 +17,13 @@ const SaludoRecepcion={
 
 function ItemListContainer(props){
   const {Itemx} = useContext(shopContext)
+  const { ItemFirebase} = useContext(shopContext)
+ 
     return(
         <div>
         <SaludoRecepcion.Saludo value={props.val} />
         <Itemx></Itemx>
+        <ItemFirebase></ItemFirebase>
         
        </div>
     )

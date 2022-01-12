@@ -1,6 +1,7 @@
 import React, { useContext, createContext,useState,useRef,useEffect } from "react";
+import{doc ,docs, getDocs, getFirestore,collection} from "firebase/firestore"
 import { NavLink , useParams} from 'react-router-dom';
-import{doc , getDoc, getFirestore} from "firebase/firestore"
+
 import Item from "../components/Item";
 import Cart from "../components/Cart";
 
@@ -52,6 +53,51 @@ const CustomProvider = ({children})=>{
           )
             
         }
+
+    function ItemFirebase(){
+
+      const [Data, setData]=useState([])
+     
+      {/*useEffect(()=>{
+            const db = getFirestore();
+            const data = doc(db, "items", "9Gc4Z1hXfxG0vVxJl4C6")
+            getDoc(data).then((snapshot)=>{
+                console.log(snapshot.data())
+                setData([snapshot.data()])
+            })
+        })*/}
+        useEffect(()=>{
+          const db = getFirestore();
+          const data= collection(db, "items")
+          getDocs(data).then((res)=>{
+          console.log(res.docs.map((doc)=>({id: doc.id,...doc.data})))
+          setData (res.docs.map((doc)=>({id: doc.id,...doc.data})))
+      },[])
+  })
+  return(
+        
+    <div>
+    {
+               Data.map((val)=>{
+                 return (
+                 <div key={val.id} id={val.id} className='d-flex flex-column justify-content-center align-items-center'>
+                 <img src={val.img} style={{width:300, height:300}} alt=""/>
+                 <p>{val.name}</p>
+                 <p>{val.price}</p>
+                
+      
+                 </div>
+                 )
+                 
+               })
+              }
+    </div>
+    
+      )
+
+
+
+    }
     
    
     const CantidadParaCompra = useRef();
@@ -123,7 +169,7 @@ const ClaseEj =()=>{
 
 
 return (
-    <Provider value={{isDarkMode,compraSniker,cartLength,carrito,sniker,CantidadParaCompra,Itemx,Talle}}>
+    <Provider value={{isDarkMode,compraSniker,cartLength,carrito,sniker,CantidadParaCompra,Itemx,Talle,ItemFirebase}}>
 
         {children}
     </Provider>
