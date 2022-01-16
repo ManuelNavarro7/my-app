@@ -1,9 +1,7 @@
 import React, { useContext, createContext,useState,useRef,useEffect } from "react";
 import{doc ,docs, getDocs, getFirestore,collection} from "firebase/firestore"
-import { NavLink , useParams} from 'react-router-dom';
 
-import Item from "../components/Item";
-import Cart from "../components/Cart";
+
 
 export const shopContext = createContext()
 
@@ -12,7 +10,8 @@ const {Provider}= shopContext
 
 const CustomProvider = ({children})=>{
 
-    const [sniker, setSniker]=(useState([]))
+
+    const [Data, setData]=useState([])
 
     const [compraSniker , setcompraSniker]=useState([])
 
@@ -20,85 +19,17 @@ const CustomProvider = ({children})=>{
 
     const [isDarkMode, setDarkMode]=useState('dark')
 
-  function Itemx() {
-  
-          const arrAux= new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-            setSniker([{id:'1',name:"Air Jordan Low",price:2000,stock:10,img: "https://essential.vteximg.com.br/arquivos/ids/437474-454-423/306-9752_1.jpg?v=637588374387730000"},{ id:'2',name:"Air Jordan Low",price:2500,stock:10,img: "https://i.pinimg.com/736x/71/39/6d/71396d0122a14f94d1a01765839e76d2.jpg"},{ id:'3',name:"Nike AF-1 stussi",price:50000,stock:10,img: "https://www.coolzapas.es/wp-content/uploads/2021/01/CZ9084200_FOSS_1_720x.jpg"}])
-            resolve(true)
-          },1000)
-          })
-        
-          arrAux.then()
-        
-          return(
-        
-        <div>
-        {
-                   sniker.map((valorActual)=>{
-                     return (
-                     <div key={valorActual.id} id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
-                     <img src={valorActual.img} style={{width:300, height:300}} alt=""/>
-                     <p>{valorActual.name}</p>
-                     <p>{valorActual.price}</p>
-                    
-                     <NavLink to ={`/Store/Detalle/${valorActual.id}`}>Detalle</NavLink>
-                     </div>
-                     )
-                     
-                   })
-                  }
-        </div>
-        
-          )
-            
-        }
 
-    function ItemFirebase(){
-
-      const [Data, setData]=useState([])
-     
-      {/*useEffect(()=>{
-            const db = getFirestore();
-            const data = doc(db, "items", "9Gc4Z1hXfxG0vVxJl4C6")
-            getDoc(data).then((snapshot)=>{
-                console.log(snapshot.data())
-                setData([snapshot.data()])
-            })
-        })*/}
-        useEffect(()=>{
-          const db = getFirestore();
-          const data= collection(db, "items")
-          getDocs(data).then((res)=>{
-          console.log(res.docs.map((doc)=>({id: doc.id,...doc.data})))
-          setData (res.docs.map((doc)=>({id: doc.id,...doc.data})))
-      },[])
-  })
-  return(
-        
-    <div>
-    {
-               Data.map((val)=>{
-                 return (
-                 <div key={val.id} id={val.id} className='d-flex flex-column justify-content-center align-items-center'>
-                 <img src={val.img} style={{width:300, height:300}} alt=""/>
-                 <p>{val.name}</p>
-                 <p>{val.price}</p>
-                
-      
-                 </div>
-                 )
-                 
-               })
-              }
-    </div>
-    
-      )
+    useEffect(()=>{
+      const db = getFirestore();
+      const data= collection(db, "items")
+      getDocs(data).then((res)=>{
+      console.log(res.docs.map((doc)=>({id: doc.id,...doc.data()})))
+      setData (res.docs.map((doc)=>({id: doc.id,...doc.data()})))
+  }) 
+  },[])
 
 
-
-    }
-    
    
     const CantidadParaCompra = useRef();
     
@@ -120,20 +51,13 @@ const CustomProvider = ({children})=>{
              const check = compraSniker.every(item=>{return item.id !==id} )
 
              if(check){
-              const producto = sniker.find(el => el.id === id)
+              const producto = Data.find(el => el.id === id)
               Object.defineProperty(producto,'InputX',{value:{ED}})
               Object.defineProperty(producto,'TotalFinal',{value:{TotalFinal}})
               Object.defineProperty(producto,'TalleCompra',{value:{TalleCompra}})
               setCartlength(compraSniker.length + 1)
               setcompraSniker([...compraSniker, producto])
               
-              {/*
-              const TotalSuma = compraSniker.reduce((prev,item)=>{ 
-                return prev = (item.price * item.stock)
-              })
-            
-            console.log(TotalSuma)*/}
-              //console.log(producto)
              }
           
         }
@@ -169,7 +93,7 @@ const ClaseEj =()=>{
 
 
 return (
-    <Provider value={{isDarkMode,compraSniker,cartLength,carrito,sniker,CantidadParaCompra,Itemx,Talle,ItemFirebase}}>
+    <Provider value={{isDarkMode,compraSniker,cartLength,carrito,CantidadParaCompra,Talle,Data,}}>
 
         {children}
     </Provider>

@@ -4,24 +4,30 @@ import { BrowserRouter,Routes,Route,useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './App.css';
 import NavBarComponent from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
 import ItemDetail from './components/Item';
 import Cart from './components/Cart';
 import CustomProvider, { shopContext } from './context/carContext';
+import  ItemFirebase from './components/Firestore';
 
 function App() {
 
  const Nav=()=><NavBarComponent></NavBarComponent>
 
- const Detalle =()=><ItemListContainer></ItemListContainer>
+ const Detalle =()=><ItemFirebase></ItemFirebase>
  
  const Item =()=><ItemDetail></ItemDetail>
 
  const CartFinal =()=><Cart></Cart>
 
- const {id}=useParams()
 
- useEffect(()=>{console.log(id)},[id])
+ 
+
+ const params =useParams()
+
+ useEffect(()=>{
+   console.log(params)
+  return (console.log(params))
+  },[])
 
   
   return (
