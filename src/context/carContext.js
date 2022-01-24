@@ -24,6 +24,8 @@ const CustomProvider = ({children})=>{
 
     const [FinalData, setFinalData] = useState()
 
+    const [FinalCheckOut, setFinalCheckOut]= useState([])
+
     const value ={
       productos: [Data]
  
@@ -149,33 +151,69 @@ const ClaseEj =()=>{
 useEffect(()=>{
   const data = collection(db, "order")
         getDocs(data).then((res)=>{
-            console.log(res.docs)
-            console.log(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
+           // console.log(res.docs)
+            //console.log(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
             setFinalData(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
-            console.log(FinalData)
+            //console.log(FinalData)
         })
+        //====================== useeffect
+  
   },[NewData])
+
+
+function FormFinal(){
+  setFinalCheckOut([])
+
+}
+
+  useEffect(()=>{
+
+    if(NewData !=null){
+      
+        const id= NewData
+        const producto = FinalData.find(el => el.id === id)
+        setFinalCheckOut([producto])
+        setcompraSniker([])
+        localStorage.clear()
+    }
+  },[FinalData])
 
 
 
 const handleSubmit =(e)=>{
   e.preventDefault()
+  
   const newItem = {nombre:e.target[0].value,precio:{Total}}
   const data = collection(db, "order")
   addDoc(data,newItem).then((res)=>{
-      console.log(res.id)
+      //console.log(res.id)
       setNewData(res.id)
+      
   })
   
-  console.log(NewData)
+  
   
 }
 //===============================================================================
 
+  
+
+
+
+   
+
+
+
+
+
+
+
+
+
 
 
 return (
-    <Provider value={{isDarkMode,compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total }}>
+    <Provider value={{isDarkMode,compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal }}>
 
         {children}
     </Provider>

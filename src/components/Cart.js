@@ -6,6 +6,10 @@ import FormFinal from './Form'
 import TicketFinal from './TicketFinal'
 import Select from 'react-select'
 import 'boxicons'
+import Button from 'react-bootstrap/Button'
+
+
+
 export default function Cart(){
 
     const {compraSniker} = useContext(shopContext)
@@ -13,7 +17,7 @@ export default function Cart(){
     const {  removeProductos } = useContext(shopContext)
     const {  reduce } = useContext(shopContext)
     const {  increase } = useContext(shopContext)
-    
+    const {  FormFinal } = useContext(shopContext)
    
     if(compraSniker==0){
       return <h2>Carrito Vacio</h2>
@@ -26,7 +30,7 @@ if(compraSniker!=0){
 
   
 
-  const Form = FormFinal()
+  
   //TicketFinal()
   //const  TicketF = TicketFinal()
 return(
@@ -39,9 +43,9 @@ return(
                  <img src={valorActual.img} style= {{width:300, height:300}}></img>
                  <p>{valorActual.name}</p>
                  <p>Precio {valorActual.price}</p>
-                 <box-icon onClick={() => increase(valorActual.id)} name="up-arrow"type="solid"/>
+                 <box-icon onClick={() => increase(valorActual.id)} name="up-arrow-circle"type="solid"/>
                  <p className='cantidad'>{valorActual.cantidad}</p>
-                 <box-icon onClick={() => reduce(valorActual.id)} name="down-arrow" type="solid"/>
+                 <box-icon onClick={() => reduce(valorActual.id)} name="down-arrow-circle" type="solid"/>
                  <div onClick={()=>removeProductos(valorActual.id)}>
                  <box-icon name='trash' type='solid' ></box-icon>
                  </div>
@@ -56,9 +60,10 @@ return(
               
               <div className='carrito_footer'>
               <h3>Total ${Total}</h3>
-              <button className='btn'>Payment</button>
+              <NavLink to ={`/Store/CheckOut`}> <Button variant="primary" onClick={FormFinal}>Primary</Button></NavLink>
+             
               </div>
-              <div>{Form}</div>
+             
               
               
               

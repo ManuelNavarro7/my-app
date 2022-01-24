@@ -7,18 +7,19 @@ import { shopContext } from '../context/carContext'
 export default function TicketFinal(){
 
 
-    const {FinalData} = useContext(shopContext)
+    const {FinalCheckOut} = useContext(shopContext)
 
+    
 
     return(
         <div>
             {
-                      FinalData.map((valorActual)=>{
+                      FinalCheckOut.map((valorActual)=>{
                         return (
                         <div key={valorActual.id}  id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
                         <div>{valorActual.id}</div>
                         <div>{valorActual.nombre}</div>
-                        <div>{valorActual.precio.FinalPrice}</div>
+                        
                        
                          
            

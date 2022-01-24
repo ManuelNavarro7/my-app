@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { shopContext } from '../context/carContext'
+import TicketFinal from './TicketFinal';
 
 export default function  FormFinal () {
 
@@ -11,9 +12,16 @@ export default function  FormFinal () {
     const {handleClick} = useContext(shopContext)
     const {FinalPrice} = useContext(shopContext)
 
+    const {Total}= useContext(shopContext)
+
+    TicketFinal()
+    //console.log(TicketFinal)
+    //const  TicketF = TicketFinal()
+
     return(
 
         <Container>
+            <div>${Total}</div>
         <Form onSubmit={handleSubmit}>
        <Form.Group className="mb-3" controlId="formBasicEmail">
            <Form.Label>Nombre</Form.Label>
@@ -28,6 +36,8 @@ export default function  FormFinal () {
        </Button>
       
        </Form>
+
+       <div>{TicketFinal()}</div>
        </Container>)
    
 

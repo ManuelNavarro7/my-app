@@ -9,6 +9,8 @@ import Cart from './components/Cart';
 import CustomProvider, { shopContext } from './context/carContext';
 import  ItemFirebase from './components/Firestore';
 import 'boxicons';
+import FormFinal from './components/Form';
+
 
 function App() {
 
@@ -20,7 +22,7 @@ function App() {
 
  const CartFinal =()=><Cart></Cart>
 
-
+const CheckOut = ()=><FormFinal></FormFinal>
  
 
  const params =useParams()
@@ -46,7 +48,7 @@ function App() {
      
       <Route exact path = "/Store/Detalle/:id" element={<Item></Item>}></Route>
       <Route exact path = "/Store/Cart" element={<CartFinal/>}></Route>
-      
+      <Route exact path = "/Store/CheckOut" element={<CheckOut/>}></Route>
 
     </Routes>
     

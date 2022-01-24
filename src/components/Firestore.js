@@ -4,6 +4,7 @@ import { shopContext } from '../context/carContext'
 import ComponentCommon from './common'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../styles/itemsprueba.css'
+import jordanVioletas from '../imgs/jordanVioletas.jpeg'
 
 export default function ItemFirebase(){
 
@@ -13,7 +14,7 @@ export default function ItemFirebase(){
    
     const {value} = useContext(shopContext)
     const productos = value.productos[0]
-    
+   
  
    
   
@@ -22,6 +23,7 @@ export default function ItemFirebase(){
 return(
       
   <div>
+    
      <ComponentCommon.Saludo/>
      
   {
