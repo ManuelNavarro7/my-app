@@ -9,17 +9,17 @@ export default function ItemDetail(){
     
     const {id}=useParams()
     
-    
     const {carrito} = useContext(shopContext)
     
-    const {Data} = useContext(shopContext)  
+    const {value} = useContext(shopContext)
     
-    const {CantidadParaCompra} = useContext(shopContext)  
-
-    const {Talle} = useContext(shopContext)  
+    const productos = value.productos[0]
+    
    
-    const resultado = Data.find(el => el.id === id)
-  
+    const resultado = productos.find(el => el.id === id)
+
+
+   
    
 
 
@@ -32,9 +32,8 @@ return(
     <div>{resultado.price}</div>
     <div>{resultado.name}</div>
     <button onClick={carrito} id={resultado.id} value={resultado.price}  > agregar </button> 
-    <input  ref={CantidadParaCompra} maxLength="1" type='text' placeholder='cantidad de unidades'/>
-    <input  ref={Talle} maxLength="2" type='text' placeholder='talle'/>
    
+    
     <NavLink to ={`/`}>Store</NavLink>
     <NavLink to ={`/Store/Cart`}>Cart</NavLink>
     </article>

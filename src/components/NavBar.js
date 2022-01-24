@@ -33,7 +33,7 @@ function NavBarComponent(props){
   const {isDarkMode} = useContext(shopContext)
   
 
-  const {cartLength} = useContext(shopContext)
+  const {compraSniker} = useContext(shopContext)
 
   
     return(
@@ -48,7 +48,7 @@ function NavBarComponent(props){
 
               
               <NavLink to ={`/Store/Cart`}><CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito></NavLink>
-              <NavLink to ={`/Store/Cart`} className='Links'>{cartLength}</NavLink>
+              <NavLink to ={`/Store/Cart`} className='Links'>{compraSniker.length}</NavLink>
             </Nav>
 
 

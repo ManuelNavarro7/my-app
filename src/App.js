@@ -8,6 +8,7 @@ import ItemDetail from './components/Item';
 import Cart from './components/Cart';
 import CustomProvider, { shopContext } from './context/carContext';
 import  ItemFirebase from './components/Firestore';
+import 'boxicons';
 
 function App() {
 

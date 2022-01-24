@@ -9,9 +9,13 @@ export default function ItemFirebase(){
 
     
     
-    const {Data} = useContext(shopContext)
-   
     
+   
+    const {value} = useContext(shopContext)
+    const productos = value.productos[0]
+    
+ 
+   
   
     
 
@@ -22,7 +26,7 @@ return(
      
   {
       
-             Data.map((val)=>{
+            productos.map((val)=>{
                return (
                <div key={val.id} id={val.id} className='d-flex flex-column justify-content-center align-items-center'>
                <img src={val.img} style={{width:300, height:300}} alt=""/>

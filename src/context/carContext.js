@@ -1,5 +1,5 @@
 import React, { useContext, createContext,useState,useRef,useEffect } from "react";
-import{doc ,docs, getDocs, getFirestore,collection} from "firebase/firestore"
+import{doc ,docs, getDocs, getFirestore,collection,addDoc,} from "firebase/firestore"
 
 
 
@@ -10,41 +10,41 @@ const {Provider}= shopContext
 
 const CustomProvider = ({children})=>{
 
+  const db= getFirestore();
 
     const [Data, setData]=useState([])
 
     const [compraSniker , setcompraSniker]=useState([])
 
-    const [cartLength, setCartlength]=useState([])
-
     const [isDarkMode, setDarkMode]=useState('dark')
 
+    const [Total, setTotal]=useState([])
+
+    const [NewData, setNewData] = useState()
+
+    const [FinalData, setFinalData] = useState()
+
+    const value ={
+      productos: [Data]
+ 
+    }
 
     useEffect(()=>{
       const db = getFirestore();
       const data= collection(db, "items")
       getDocs(data).then((res)=>{
-      console.log(res.docs.map((doc)=>({id: doc.id,...doc.data()})))
+      //console.log(res.docs.map((doc)=>({id: doc.id,...doc.data()})))
       setData (res.docs.map((doc)=>({id: doc.id,...doc.data()})))
-  }) 
-  },[])
+      }) 
+      },[])
 
 
-   
-    const CantidadParaCompra = useRef();
-    
-    const Talle = useRef();
+
 
     function carrito(e){
 
         let id = e.target.getAttribute("id")
-        let PrecioCompra = e.target.getAttribute("value")
-        
-        let ED = parseInt(CantidadParaCompra.current.value)
-        let TalleCompra = parseInt(Talle.current.value)
-        let TotalFinal = ED * PrecioCompra
-
-        console.log(TalleCompra)
+       
 
 
         if(compraSniker !=null){
@@ -52,21 +52,71 @@ const CustomProvider = ({children})=>{
 
              if(check){
               const producto = Data.find(el => el.id === id)
-              Object.defineProperty(producto,'InputX',{value:{ED}})
-              Object.defineProperty(producto,'TotalFinal',{value:{TotalFinal}})
-              Object.defineProperty(producto,'TalleCompra',{value:{TalleCompra}})
-              setCartlength(compraSniker.length + 1)
-              setcompraSniker([...compraSniker, producto])
-              
+            setcompraSniker([...compraSniker, producto])
+              console.log(localStorage)
              }
           
         }
         
 
     }
-    
-   
 
+
+    useEffect(()=>{
+      const dataCarrito = JSON.parse(localStorage.getItem('dataCarrito'))
+      if(dataCarrito){
+        setcompraSniker(dataCarrito)
+      }
+    },[])
+
+    useEffect(()=>{
+      localStorage.setItem('dataCarrito', JSON.stringify(compraSniker))
+    },[compraSniker])
+
+
+
+    const removeProductos = id =>{
+      if(window.confirm("¿Quieres suspender el producto?")){
+        compraSniker.forEach((item, index)=>{
+          if(item.id === id){
+            item.cantidad = 1;
+            compraSniker.splice(index, 1)
+          }
+        })
+        setcompraSniker([...compraSniker])
+      }
+    }
+    
+    const reduce = id =>{
+      compraSniker.forEach(item =>{
+        if(item.id === id){
+          item.cantidad === 1 ? item.cantidad = 1: item.cantidad -=1;
+        }
+        setcompraSniker([...compraSniker])
+      })
+    }
+    const increase = id =>{
+      compraSniker.forEach(item =>{
+        if(item.id === id){
+          item.cantidad +=1;
+        }
+        setcompraSniker([...compraSniker])
+      })
+    }
+
+
+    useEffect(() =>{
+      const getTotal = () =>{
+        const res = compraSniker.reduce((prev, item) =>{
+          return prev + (item.price * item.cantidad)
+        },0)
+        setTotal(res)
+      }
+      getTotal()
+    },[compraSniker])
+  
+
+  
 //=============================== Clase
 
 const ClaseEj =()=>{
@@ -90,10 +140,42 @@ const ClaseEj =()=>{
         
 //=============================== Clase
 
+//=================================ultima clase firebase
+
+
+
+
+
+useEffect(()=>{
+  const data = collection(db, "order")
+        getDocs(data).then((res)=>{
+            console.log(res.docs)
+            console.log(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
+            setFinalData(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
+            console.log(FinalData)
+        })
+  },[NewData])
+
+
+
+const handleSubmit =(e)=>{
+  e.preventDefault()
+  const newItem = {nombre:e.target[0].value,precio:{Total}}
+  const data = collection(db, "order")
+  addDoc(data,newItem).then((res)=>{
+      console.log(res.id)
+      setNewData(res.id)
+  })
+  
+  console.log(NewData)
+  
+}
+//===============================================================================
+
 
 
 return (
-    <Provider value={{isDarkMode,compraSniker,cartLength,carrito,CantidadParaCompra,Talle,Data,}}>
+    <Provider value={{isDarkMode,compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total }}>
 
         {children}
     </Provider>
