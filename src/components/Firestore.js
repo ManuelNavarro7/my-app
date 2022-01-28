@@ -5,13 +5,15 @@ import ComponentCommon from './common'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../styles/itemsprueba.css'
 import jordanVioletas from '../imgs/jordanVioletas.jpeg'
+import { Container, Col, Row } from "react-bootstrap";
+import Button from "@restart/ui/esm/Button";
 
 export default function ItemFirebase(){
 
     
     
     
-   
+ 
     const {value} = useContext(shopContext)
     const productos = value.productos[0]
    
@@ -22,27 +24,33 @@ export default function ItemFirebase(){
 
 return(
       
-  <div>
+  <Container fluid className="p-0">
     
-     <ComponentCommon.Saludo/>
-     
+     <ComponentCommon.Banner/>
+     <ComponentCommon.Title/>
+     <div className='d-flex flex-column justify-content-center align-items-center'>{productos.length} Productos en tienda</div>
+     <Row className='text-start' className='ms-5'> 
   {
       
             productos.map((val)=>{
                return (
-               <div key={val.id} id={val.id} className='d-flex flex-column justify-content-center align-items-center'>
-               <img src={val.img} style={{width:300, height:300}} alt=""/>
-               <p>{val.name}</p>
-               <p>{val.price}</p>
-               <NavLink to ={`/Store/Detalle/${val.id}`}>Detalle</NavLink>
+               
+                
+              <Col key={val.id} id={val.id} lg={4} md={6} sm={6} >
+                     <NavLink to ={`/Store/Detalle/${val.id}`} className='LinksObjetos'>
+                     <img src={val.img} style={{width:240, height:180}} alt=""/>
+                     <p className='ps-4'>{val.name}</p>
+                     <p className='ps-4' >${val.price}</p>
+                     </NavLink>
+              </Col>
+               
               
-    
-               </div>
                )
                
              })
             }
-  </div>
+           </Row>
+          </Container>
   
     )
 

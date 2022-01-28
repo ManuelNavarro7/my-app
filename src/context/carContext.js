@@ -31,6 +31,9 @@ const CustomProvider = ({children})=>{
  
     }
 
+
+  //==========================================Firestore =========================
+
     useEffect(()=>{
       const db = getFirestore();
       const data= collection(db, "items")
@@ -42,7 +45,7 @@ const CustomProvider = ({children})=>{
 
 
 
-
+//======================================== Agregar al Carrito===================
     function carrito(e){
 
         let id = e.target.getAttribute("id")
@@ -62,8 +65,9 @@ const CustomProvider = ({children})=>{
         
 
     }
+//==============================================================================
 
-
+//================================== Local Storage===================
     useEffect(()=>{
       const dataCarrito = JSON.parse(localStorage.getItem('dataCarrito'))
       if(dataCarrito){
@@ -75,10 +79,13 @@ const CustomProvider = ({children})=>{
       localStorage.setItem('dataCarrito', JSON.stringify(compraSniker))
     },[compraSniker])
 
+//=====================================================================
 
+
+//================================== Borrar Producto===================
 
     const removeProductos = id =>{
-      if(window.confirm("¿Quieres suspender el producto?")){
+      
         compraSniker.forEach((item, index)=>{
           if(item.id === id){
             item.cantidad = 1;
@@ -86,8 +93,10 @@ const CustomProvider = ({children})=>{
           }
         })
         setcompraSniker([...compraSniker])
-      }
+      
     }
+
+//================================== Cantidad de Productos===================
     
     const reduce = id =>{
       compraSniker.forEach(item =>{
@@ -99,14 +108,36 @@ const CustomProvider = ({children})=>{
     }
     const increase = id =>{
       compraSniker.forEach(item =>{
-        if(item.id === id){
+        if(item.id === id && item.cantidad < 10){
           item.cantidad +=1;
         }
         setcompraSniker([...compraSniker])
       })
     }
+//================================================================================
 
+//======================================= Talle ==================================
+ 
+const reduceTalle = id =>{
+  compraSniker.forEach(item =>{
+    if(item.id === id && item.talle >37){
+      item.talle === 37 ? item.talle = 37: item.talle -=1;
+    }
+    setcompraSniker([...compraSniker])
+  })
+}
+const increaseTalle = id =>{
+  compraSniker.forEach(item =>{
+    if(item.id === id && item.talle < 45){
+      item.talle +=1;
+    }
+    setcompraSniker([...compraSniker])
+  })
+}
 
+//================================================================================
+
+//========================================== Total =======================
     useEffect(() =>{
       const getTotal = () =>{
         const res = compraSniker.reduce((prev, item) =>{
@@ -117,7 +148,7 @@ const CustomProvider = ({children})=>{
       getTotal()
     },[compraSniker])
   
-
+//=================================================================================
   
 //=============================== Clase
 
@@ -142,7 +173,7 @@ const ClaseEj =()=>{
         
 //=============================== Clase
 
-//=================================ultima clase firebase
+//=================================ultima clase firebase ========================
 
 
 
@@ -178,12 +209,15 @@ function FormFinal(){
     }
   },[FinalData])
 
+//===================================================================================
 
+//===========================================Finalizar compra=========================
 
 const handleSubmit =(e)=>{
   e.preventDefault()
   
-  const newItem = {nombre:e.target[0].value,precio:{Total}}
+  const newItem = {nombre:e.target[0].value,precio:{Total},Dni:e.target[1].value,mail:e.target[2].value, productos:{compraSniker}}
+  console.log(e.target[1])
   const data = collection(db, "order")
   addDoc(data,newItem).then((res)=>{
       //console.log(res.id)
@@ -191,9 +225,13 @@ const handleSubmit =(e)=>{
       
   })
   
-  
+  console.log("click")
   
 }
+
+
+
+
 //===============================================================================
 
   
@@ -213,7 +251,7 @@ const handleSubmit =(e)=>{
 
 
 return (
-    <Provider value={{isDarkMode,compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal }}>
+    <Provider value={{isDarkMode,compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal,reduceTalle,increaseTalle}}>
 
         {children}
     </Provider>

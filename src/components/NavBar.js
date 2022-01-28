@@ -37,24 +37,22 @@ function NavBarComponent(props){
 
   
     return(
-        <Navbar bg='dark' variant={isDarkMode}>
-          <Container fluid >
+      <Navbar bg="dark" expand="lg">
+      <Container>
+      <NavLink to ={'/'} className='Links'>Home</NavLink>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className='Toggle' />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+          
             
-            <NavLink to ={'/'} className='Links'>Home</NavLink>
-            <Nav className=" d-flex flex-row justify-content-between align-items-center">
-              
-              
-              <Nav.Link className='Links'>Contacto</Nav.Link>
-
-              
-              <NavLink to ={`/Store/Cart`}><CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito></NavLink>
-              <NavLink to ={`/Store/Cart`} className='Links'>{compraSniker.length}</NavLink>
-            </Nav>
-
-
-          </Container>
-
-        </Navbar>
+            
+          </Nav>
+          <Nav.Link className='Links'>Contacto</Nav.Link>
+          <NavLink to ={`/Store/Cart`} className='ps-3'><CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito></NavLink>
+          <NavLink to ={`/Store/Cart`} className='Links ps-3'>{compraSniker.length}</NavLink>
+        </Navbar.Collapse>
+      </Container>
+      </Navbar>
         
     )
 }
