@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { shopContext } from '../context/carContext'
 import TicketFinal from './TicketFinal';
+import { FaFacebook, FaTwitter,FaInstagram } from "react-icons/fa"
+
 
 
 export default function  Footer () {
@@ -21,7 +23,7 @@ return(
       <div className="row mt-4">
        
         <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
-          <h5 className="text-uppercase mb-4">REVERSE company</h5>
+          <h5 className="text-uppercase mb-4 text-center">REVERSE company</h5>
 
           <p>
             Somos una compania dedicada al importacion de calzado de mas alta calidad.
@@ -31,30 +33,28 @@ return(
            Encontra las mejores marcas en un solo lugar y al mejor precio
           </p>
 
-          <div className="mt-4">
+          <div className="mt-4 d-flex flex-row justify-content-center align-items-center align-content-center">
             
-            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-facebook-f"></i></a>
+          
+
            
-            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-dribbble"></i></a>
+            <a type="button" className="btn btn-floating btn-light btn-lg ms-4" href='https://www.instagram.com/manupavonnavarro'><FaInstagram/></a>
            
-            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-twitter"></i></a>
+            <a type="button" className="btn btn-floating btn-light btn-lg ms-4" href='https://twitter.com/ManuelN93748039'><FaTwitter/></a>
             
-            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-google-plus-g"></i></a>
+            
            
           </div>
         </div>
        
 
        
-        <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
-          <h5 className="text-uppercase mb-4 pb-1">Search something</h5>
+        <div className="col-lg-4 col-md-6 mb-4 mb-md-0 ">
+          <h5 className="text-uppercase mb-4 pb-1 text-center">Contacto</h5>
 
-          <div className="form-outline form-white mb-4">
-            <input type="text" id="formControlLg" className="form-control form-control-lg" />
-            <label className="form-label" for="formControlLg">Search</label>
-          </div>
+         
 
-          <ul className="fa-ul" >
+          <ul className="fa-ul d-flex flex-column justify-content-start align-items-start align-content-start" >
             <li className="mb-3">
               <span className="fa-li"><i className="fas fa-home"></i></span><span className="ms-2">Avenida Siempreviva 742 </span>
             </li>
@@ -68,7 +68,7 @@ return(
         </div>
         
         <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
-          <h5 className="text-uppercase mb-4">Horarios de Entregas</h5>
+          <h5 className="text-uppercase mb-4 text-center">Horarios de Entregas</h5>
 
           <table className="table text-center text-white">
             <tbody className="fw-normal">

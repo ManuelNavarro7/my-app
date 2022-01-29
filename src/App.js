@@ -10,7 +10,7 @@ import CustomProvider, { shopContext } from './context/carContext';
 import  ItemFirebase from './components/Firestore';
 import 'boxicons';
 import FormFinal from './components/Form';
-
+import Footer from './components/footer';
 
 function App() {
 
@@ -22,8 +22,9 @@ function App() {
 
  const CartFinal =()=><Cart></Cart>
 
-const CheckOut = ()=><FormFinal></FormFinal>
- 
+ const CheckOut = ()=><FormFinal></FormFinal>
+
+ const Foot =()=><Footer></Footer>
 
  const params =useParams()
 
@@ -52,7 +53,11 @@ const CheckOut = ()=><FormFinal></FormFinal>
 
     </Routes>
     
+    <Foot/>
+
     </BrowserRouter>
+
+    
     </CustomProvider>
     
   );
