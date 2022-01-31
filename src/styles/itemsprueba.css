@@ -20,6 +20,12 @@
   color:lightgray;
 }
 
+.InputBuscador{
+  width: 100px;
+  margin-right: 120px;
+  margin-left: 70px;
+}
+
 .btn-Final{
 
   background-color: purple;
@@ -135,15 +141,6 @@
   width: 350px;
 
 }
-
-
-
-
-
-
-
-
-
 
 
 

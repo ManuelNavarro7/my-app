@@ -6,6 +6,8 @@ import Nav from 'react-bootstrap/Nav'
 import { NavLink } from 'react-router-dom'
 import ComponentCommon from './common'
 import { shopContext } from "../context/carContext";
+import Button from 'react-bootstrap/Button'
+import { FormControl, InputGroup,Form } from 'react-bootstrap'
 
 /*
 const Components={
@@ -30,11 +32,15 @@ function NavBarComponent(props){
 
 
   
-  const {isDarkMode} = useContext(shopContext)
+  
   
 
   const {compraSniker} = useContext(shopContext)
 
+  const {handleSubmitinput} = useContext(shopContext)
+  const {texto} = useContext(shopContext)
+  const {handleInputChange1} = useContext(shopContext)
+  
   
     return(
       <Navbar bg="dark" expand="lg">
@@ -47,6 +53,23 @@ function NavBarComponent(props){
             
             
           </Nav>
+          <Form onSubmit={handleSubmitinput} className='d-flex flex-row justify-content-center align-items-center mt-2 mb-2'>
+          <InputGroup  className="" type='text'
+            name='buscar'
+            placeholder='nombre del producto'
+            value={texto}
+            onChange={handleInputChange1}>
+             
+          <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+          </InputGroup>
+          
+           
+            <NavLink to ={"/Store/ProductoBuscado"} className='ps-3'> <Button type='Submit' variant="outline-light" >Buscar</Button></NavLink>
+          </Form>
+           
+          
+         
+          
           <Nav.Link className='Links'>Contacto</Nav.Link>
           <NavLink to ={`/Store/Cart`} className='ps-3'><CartWidgets.ImagenCarrito > </CartWidgets.ImagenCarrito></NavLink>
           <NavLink to ={`/Store/Cart`} className='Links ps-3'>{compraSniker.length}</NavLink>

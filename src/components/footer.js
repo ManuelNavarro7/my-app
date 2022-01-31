@@ -77,7 +77,7 @@ return(
                 <td>8am - 15pm</td>
               </tr>
               <tr>
-                <td>Vier - SaB:</td>
+                <td>Sabado:</td>
                 <td>8am - 13pm</td>
               </tr>
               <tr>

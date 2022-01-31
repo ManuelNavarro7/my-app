@@ -11,14 +11,18 @@ import  ItemFirebase from './components/Firestore';
 import 'boxicons';
 import FormFinal from './components/Form';
 import Footer from './components/footer';
+import ProdcutoBusca from './components/ProductoBuscadO'
+
 
 function App() {
 
  const Nav=()=><NavBarComponent></NavBarComponent>
 
  const Detalle =()=><ItemFirebase></ItemFirebase>
- 
+
  const Item =()=><ItemDetail></ItemDetail>
+
+ const PBuscado = ()=><ProdcutoBusca></ProdcutoBusca>
 
  const CartFinal =()=><Cart></Cart>
 
@@ -48,6 +52,7 @@ function App() {
       <Route exact path = "/" element={<Detalle></Detalle>}></Route>
      
       <Route exact path = "/Store/Detalle/:id" element={<Item></Item>}></Route>
+      <Route exact path = "/Store/ProductoBuscado" element={<PBuscado/>}></Route>
       <Route exact path = "/Store/Cart" element={<CartFinal/>}></Route>
       <Route exact path = "/Store/CheckOut" element={<CheckOut/>}></Route>
 

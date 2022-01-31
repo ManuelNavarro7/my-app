@@ -16,7 +16,9 @@ const CustomProvider = ({children})=>{
 
     const [compraSniker , setcompraSniker]=useState([])
 
-    const [isDarkMode, setDarkMode]=useState('dark')
+    const [texto, settexto]=useState('')
+
+    const [pBuscado, setpBuscado]= useState([])
 
     const [Total, setTotal]=useState([])
 
@@ -225,20 +227,34 @@ const handleSubmit =(e)=>{
       
   })
   
-  console.log("click")
+  //console.log("click")
   
 }
 
 
 
 
-//===============================================================================
+//============================================= Buscador ==================================
 
   
 
+const handleInputChange1=({target})=>{
+    settexto(target.value.toLowerCase())
+}
 
+const handleSubmitinput =(e)=>{
+  e.preventDefault()
+  
+  settexto(texto)
 
-   
+  console.log(texto)
+  const produc = Data.find(producto=>producto.name.toLowerCase() === texto)
+
+  
+  
+  
+}
+
 
 
 
@@ -251,7 +267,7 @@ const handleSubmit =(e)=>{
 
 
 return (
-    <Provider value={{isDarkMode,compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal,reduceTalle,increaseTalle}}>
+    <Provider value={{compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal,reduceTalle,increaseTalle,handleInputChange1,handleSubmitinput,texto}}>
 
         {children}
     </Provider>
