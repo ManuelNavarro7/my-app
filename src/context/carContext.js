@@ -95,7 +95,7 @@ const CustomProvider = ({children})=>{
       
     }
 
-//================================== Cantidad de Productos===================
+//================================== Aumentar cantidad de Producto ===================
     
     const reduce = id =>{
       compraSniker.forEach(item =>{
@@ -195,7 +195,7 @@ const handleSubmit =(e)=>{
   e.preventDefault()
   
   const newItem = {nombre:e.target[0].value,precio:{Total},Dni:e.target[1].value,mail:e.target[2].value, productos:{compraSniker}}
-  console.log(e.target[1])
+  //console.log(e.target[1])
   const data = collection(db, "order")
   addDoc(data,newItem).then((res)=>{
       //console.log(res.id)
