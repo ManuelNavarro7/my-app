@@ -1,11 +1,6 @@
-import React,{useState, useEffect,useContext,useRef} from 'react' 
-import { Container } from 'react-bootstrap';
+import React from 'react' 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import { shopContext } from '../context/carContext'
-import TicketFinal from './TicketFinal';
-import { FaFacebook, FaTwitter,FaInstagram } from "react-icons/fa"
+import {  FaTwitter,FaInstagram } from "react-icons/fa"
 
 
 

@@ -1,10 +1,6 @@
-import React,{useState, useEffect,useContext,useRef} from 'react' 
-import { NavLink , useParams} from 'react-router-dom'
-import ComponentCommon from './common'
+import React,{useContext} from 'react' 
+import { NavLink} from 'react-router-dom'
 import { shopContext } from '../context/carContext'
-import FormFinal from './Form'
-import TicketFinal from './TicketFinal'
-import Select from 'react-select'
 import 'boxicons'
 import Button from 'react-bootstrap/Button'
 import { Container, Row ,Col} from 'react-bootstrap';
@@ -31,11 +27,10 @@ export default function Cart(){
     
 if(compraSniker!=0){
 
-  console.log(compraSniker)
+  
 
   
-  //TicketFinal()
-  //const  TicketF = TicketFinal()
+  
 return(
   <Container fluid className="p-0">
      <Row> 
@@ -44,7 +39,7 @@ return(
                  return (
                    <Row  key={valorActual.id} className='mt-4'>
                  <Col lg={6} md={6} sm={12} id={valorActual.id} className='d-flex flex-column justify-content-center align-items-center'>
-                 <img src={valorActual.img} className='ImagenItem ps-4'></img>
+                 <img src={valorActual.img} alt={valorActual.id} className='ImagenItem ps-4'></img>
                  </Col>
                  <Col className='d-flex flex-column justify-content-center align-items-center' lg={6} md={6} sm={12}>
                  <p className='ArticleName'>{valorActual.name}</p>

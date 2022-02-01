@@ -20,10 +20,16 @@
   color:lightgray;
 }
 
+.Reverse{
+  text-decoration: none;
+  color:lightgray;
+  font-size: 20px;
+}
+
 .InputBuscador{
-  width: 100px;
-  margin-right: 120px;
-  margin-left: 70px;
+  width: 180px;
+  margin-right: 10px;
+  margin-left: -95px;
 }
 
 .btn-Final{
@@ -142,7 +148,12 @@
 
 }
 
+/*==========================================Maps=============================*/
 
+.Maps{
+  height: 400px;
+  width:600px;
+}
 
 /*======================================== media q ======================================*/
 
@@ -175,6 +186,22 @@
   font-weight: bold;
 }
 
+.Maps{
+  height: 400px;
+  width:380px;
+}
+
+.Reverse{
+  text-decoration: none;
+  color:lightgray;
+  font-size: 15px;
+}
+
+.InputBuscador{
+  width: 180px;
+  margin-right: 10px;
+  margin-left: -95px;
+}
 
 
  }

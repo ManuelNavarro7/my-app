@@ -1,70 +1,32 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Reverse tienda On-line
 
-## Available Scripts
+Es una tienda online donde puedes comprar tus zapatillas. Fue creada para el curso de React en CoderHouse.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Roadmap
 
-### `npm run build`
+- Al ingresar se hace una peticion a una base de datos alojada en firestore donde estan almacenados los datos del producto como, name,price,img,stock,cantidad y talle.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Esos productos se muestran en el sector inferior de la tienda.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Cuando selecciono un producto nos dirige a la direccion correspondiente del mismo a traves del id por el metodo useParams. Al seleccionarlo con el metodo find se busca el producto dentro del array que lo contiene y en la direccion correspondiente nos muestra todo el contido a traves del .map .
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Estando dentro la direccion del producto podemos ejecutar diferentes acciones , como : agregarlo al carrito , esto lo que hara es atraves del id va a hacer un check para comprobar si el producto se encuentra ya en el array de CompraSniker, en el caso que no se encuentre lo va a agregar para poder visualizarlo proximamente dentro del carrito. La otra opcion es volver al Store o pagina principal y la ultima opcion es ir directo al carrito.
 
-### `npm run eject`
+- Una vez dentro del Carrito se muestran todos los productos seleccionados que se encuentran dentro del Array CompraSnicker . Tenemos 4 opciones por producto. La primera es incrementar la cantidad o decrementar la misma a traves del metodo .foreach que va a buscar a traves del id el producto y si coincide va a aumentar o disminuir la cantidad que estoy accionando. La segunda opcion realiza lo mismo con el talle del producto. La tercer opcion es borrar el producto tambien utilizando el metodo foreach para seleccionarlo y despues con el metodo .splice borramos el producto seleccionado. Tambien el sector inferior del carrito se ve el total que se va a ir modificando si subo o bajo la cantidad del producto o si agrego otros producto por el metodo .reduce que toma como referencia con el id del producto la cantidad y el precio generando una suma y almacenandola y asi producto por producto. La 4 opcion es finalizar la compra donde nos dirigira hacia otra ubicacion.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Finalizacion de la compra, nos va a mostrar en el sector izquierdo los productos seleciconados para comprar y en el sector derecho los datos que necesitamos para finalizar la misma. Una vez que completamos los datos correspondientes como Nombre , dni y mail podemos presionar el boton de finalizar la compra.Al presionarlo se envian los datos a Firebase donde quedan almacenados en una biblioteca con el nombre Order.Ahi quedan almacenados los datos ingresados como tambien los productos seleccionados. Nos genera un id random que nos sirve para poder saber donde quedo alojado el pedido.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Authors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [@ManuelNavarro7](https://github.com/ManuelNavarro7)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

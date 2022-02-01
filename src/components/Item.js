@@ -1,5 +1,5 @@
 
-import React,{useState, useEffect,useContext,useRef} from 'react' 
+import React,{useContext} from 'react' 
 import { NavLink , useParams} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { shopContext } from "../context/carContext";
@@ -13,12 +13,12 @@ export default function ItemDetail(){
     
     const {carrito} = useContext(shopContext)
     
-    const {value} = useContext(shopContext)
+    const {Data} = useContext(shopContext)
     
-    const productos = value.productos[0]
+    
     
    
-    const resultado = productos.find(el => el.id === id)
+    const resultado = Data.find(el => el.id === id)
 
 
    
@@ -33,7 +33,7 @@ return(
     
    
     
-    <img src={resultado.img} className=' ImagenItem ps-4 '></img>
+    <img src={resultado.img} alt={resultado.id} className=' ImagenItem ps-4 '></img>
    
     
     

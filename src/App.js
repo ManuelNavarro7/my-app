@@ -12,7 +12,7 @@ import 'boxicons';
 import FormFinal from './components/Form';
 import Footer from './components/footer';
 import ProdcutoBusca from './components/ProductoBuscadO'
-
+import ContactoEmpresa from './components/Contacto';
 
 function App() {
 
@@ -23,6 +23,8 @@ function App() {
  const Item =()=><ItemDetail></ItemDetail>
 
  const PBuscado = ()=><ProdcutoBusca></ProdcutoBusca>
+
+ const Contacto =()=><ContactoEmpresa></ContactoEmpresa>
 
  const CartFinal =()=><Cart></Cart>
 
@@ -53,6 +55,7 @@ function App() {
      
       <Route exact path = "/Store/Detalle/:id" element={<Item></Item>}></Route>
       <Route exact path = "/Store/ProductoBuscado" element={<PBuscado/>}></Route>
+      <Route exact path = "/Store/Contacto" element={<Contacto/>}></Route>
       <Route exact path = "/Store/Cart" element={<CartFinal/>}></Route>
       <Route exact path = "/Store/CheckOut" element={<CheckOut/>}></Route>
 

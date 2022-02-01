@@ -1,5 +1,5 @@
-import React,{useState, useEffect,useContext,useRef} from 'react' 
-import { NavLink , useParams} from 'react-router-dom'
+import React,{useContext} from 'react' 
+import { NavLink} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { shopContext } from '../context/carContext'
 import '../styles/itemsprueba.css';

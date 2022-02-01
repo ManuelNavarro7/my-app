@@ -1,5 +1,5 @@
-import React, { useContext, createContext,useState,useRef,useEffect } from "react";
-import{doc ,docs, getDocs, getFirestore,collection,addDoc,} from "firebase/firestore"
+import React, { createContext,useState,useEffect } from "react";
+import{ getDocs, getFirestore,collection,addDoc,} from "firebase/firestore"
 
 
 
@@ -18,7 +18,7 @@ const CustomProvider = ({children})=>{
 
     const [texto, settexto]=useState('')
 
-    const [pBuscado, setpBuscado]= useState([])
+    
 
     const [Total, setTotal]=useState([])
 
@@ -28,10 +28,7 @@ const CustomProvider = ({children})=>{
 
     const [FinalCheckOut, setFinalCheckOut]= useState([])
 
-    const value ={
-      productos: [Data]
- 
-    }
+    
 
 
   //==========================================Firestore =========================
@@ -60,7 +57,7 @@ const CustomProvider = ({children})=>{
              if(check){
               const producto = Data.find(el => el.id === id)
             setcompraSniker([...compraSniker, producto])
-              console.log(localStorage)
+              //console.log(localStorage)
              }
           
         }
@@ -152,28 +149,7 @@ const increaseTalle = id =>{
   
 //=================================================================================
   
-//=============================== Clase
 
-const ClaseEj =()=>{
-
-    //const {id}=useParams()
-    const [state, setState]= useState(true)
-   
-    {/*useEffect(()=>{
-      console.log(id) 
-      setState(id)
-     return(console.log(id))
-      },[id])*/}
-   if(state){
-       return <div>Hola</div>
-   }
-      return(
-       <div>{state ? 'true' : 'false'}</div>
-       )
-   
-   }
-        
-//=============================== Clase
 
 //=================================ultima clase firebase ========================
 
@@ -248,7 +224,7 @@ const handleSubmitinput =(e)=>{
   settexto(texto)
 
   console.log(texto)
-  const produc = Data.find(producto=>producto.name.toLowerCase() === texto)
+  
 
   
   
@@ -267,7 +243,7 @@ const handleSubmitinput =(e)=>{
 
 
 return (
-    <Provider value={{compraSniker,carrito,Data,handleSubmit,FinalData,value,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal,reduceTalle,increaseTalle,handleInputChange1,handleSubmitinput,texto}}>
+    <Provider value={{compraSniker,carrito,Data,handleSubmit,FinalData,removeProductos,reduce,increase,Total,FinalCheckOut,FormFinal,reduceTalle,increaseTalle,handleInputChange1,handleSubmitinput,texto}}>
 
         {children}
     </Provider>

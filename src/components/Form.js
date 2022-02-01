@@ -1,4 +1,4 @@
-import React,{useState, useEffect,useContext,useRef} from 'react' 
+import React,{useContext} from 'react' 
 import { Container, Row ,Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import Button from 'react-bootstrap/Button'
@@ -17,8 +17,7 @@ export default function  FormFinal () {
     
 
     TicketFinal()
-    //console.log(TicketFinal)
-    //const  TicketF = TicketFinal()
+    
 
     return(
 
@@ -30,7 +29,7 @@ export default function  FormFinal () {
                  return ( 
                 <div key={valorActual.id} className=' d-flex flex-column justify-content-center align-items-center mb-4'>
                         
-                 <img src={valorActual.img} className='ImagenFormFinal ps-4'></img>   
+                 <img src={valorActual.img} alt={valorActual.id} className='ImagenFormFinal ps-4'></img>   
                  <div>{valorActual.name}</div>
                  <div>Precio: ${valorActual.price}</div>
                  <div>Talle:{valorActual.talle}</div>

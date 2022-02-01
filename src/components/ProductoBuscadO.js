@@ -1,11 +1,11 @@
-import React,{useState, useEffect,useContext,useRef} from 'react' 
-import { NavLink , useParams} from 'react-router-dom'
+import React,{useContext} from 'react' 
+import { NavLink} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { shopContext } from "../context/carContext";
 import '../styles/itemsprueba.css';
 import { Container, Row ,Col} from 'react-bootstrap';
 import ComponentCommon from './common';
-import { text } from 'dom-helpers';
+
 
 
 export default function ProdcutoBusca(){
@@ -17,8 +17,7 @@ export default function ProdcutoBusca(){
     const {carrito} = useContext(shopContext)
 
     const produc = Data.find(producto=>producto.name.toLowerCase() === texto)
-    console.log(texto)
-   //console.log(produc.name.toLowerCase())
+  
 
    
     if(produc === undefined){
@@ -48,7 +47,7 @@ if(texto === produc.name.toLowerCase()){
     
    
     
-    <img src={produc.img} className=' ImagenItem ps-4 '></img>
+    <img src={produc.img} alt={produc.id}className=' ImagenItem ps-4 '></img>
    
     
     

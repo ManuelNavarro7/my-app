@@ -1,12 +1,11 @@
-import React, { useContext, createContext,useState,useRef,useEffect } from "react";
-import { NavLink , useParams} from 'react-router-dom';
+import React, { useContext} from "react";
+import { NavLink } from 'react-router-dom';
 import { shopContext } from '../context/carContext'
 import ComponentCommon from './common'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../styles/itemsprueba.css'
-import jordanVioletas from '../imgs/jordanVioletas.jpeg'
 import { Container, Col, Row } from "react-bootstrap";
-import Button from "@restart/ui/esm/Button";
+
 
 export default function ItemFirebase(){
 
@@ -14,8 +13,8 @@ export default function ItemFirebase(){
     
     
  
-    const {value} = useContext(shopContext)
-    const productos = value.productos[0]
+    const {Data} = useContext(shopContext)
+   
    
  
    
@@ -28,11 +27,11 @@ return(
     
      <ComponentCommon.Banner/>
      <ComponentCommon.Title/>
-     <div className='d-flex flex-column justify-content-center align-items-center'>{productos.length} Productos en tienda</div>
+     <div className='d-flex flex-column justify-content-center align-items-center'>{Data.length} Productos en tienda</div>
      <Row className='text-start' className='ms-5'> 
   {
       
-            productos.map((val)=>{
+            Data.map((val)=>{
                return (
                
                 
